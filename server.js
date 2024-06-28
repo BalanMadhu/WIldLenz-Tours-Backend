@@ -2,15 +2,17 @@ const express = require('express')
 const app = express()
 app.use(express.json())
 const port = 8080
-console.log('port: ', port);
 
 
-const http = require('https')
+
+const http = require('http')
 const cors = require('cors')
 app.use(cors("*"))
 
 const mongoose = require('mongoose')
-const dbUrl = `mongodb://localhost:27017/wildTour`
+
+const dbUrl = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.ymfhtpd.mongodb.net/${process.env.DBNAME}`;
+
 const option = {
     useNewUrlParser: true,
     useUnifiedTopology: true
